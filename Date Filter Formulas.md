@@ -1,4 +1,3 @@
-//Date Filter Collection to get This Week, Last Week and Last Pay Period (2 Weeks)
 ClearCollect(
     colTimeFilter,
     {
@@ -9,7 +8,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ),
-            Days
+            TimeUnit.Days
         ),
         EndDate: DateAdd(
             Today(),
@@ -17,7 +16,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ) + 6,
-            Days
+            TimeUnit.Days
         )
     },
     {
@@ -28,7 +27,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ),
-            Days
+            TimeUnit.Days
         ),
         EndDate: DateAdd(
             Today(),
@@ -36,7 +35,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ) + 6,
-            Days
+            TimeUnit.Days
         )
     },
     {
@@ -47,7 +46,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ),
-            Days
+            TimeUnit.Days
         ),
         EndDate: DateAdd(
             Today(),
@@ -55,17 +54,7 @@ ClearCollect(
                 Today(),
                 StartOfWeek.Monday
             ) + 12,
-            Days
+            TimeUnit.Days
         )
     }
-)
-
-//Filter to apply on the Gallery
-Sort(
-    Filter(
-        TimeClockData,
-        Date >= ddTimeSelection.Selected.StartDate && Date <= ddTimeSelection.Selected.EndDate
-    ),
-    Date,
-    Descending
 )
